@@ -36,7 +36,7 @@ const imgSrc: ImageSrc[] = [
     description: 'Here'
   },
 ]//이미지소스 데이터, 나중에 데어터 폴더생기면 분리예정
-// 오브젝트로 바꾸고, url,text삽입해서 수정하기 =>
+
 export default function Activities() {
   const [isTrue, setIsTrue] = useState(false);
   const onHover = () => {
@@ -51,21 +51,19 @@ export default function Activities() {
       <Masonry>
         {
           imgSrc.map((item, index) => (
-            <>
-              <Block key={index} onMouseEnter={onHover} onMouseLeave={onMouseLeave}>
-                <Description>
-                  {
-                    isTrue
-                      ? item.description
-                      : null
-                  }
-                </Description>
-                <Img src={item.url} />
-              </Block>
-            </>
+            <Block key={index} onMouseEnter={onHover} onMouseLeave={onMouseLeave}>
+              <Img src={item.url} />
+              <Description>
+                {
+                  isTrue
+                    ? item.description
+                    : null
+                }
+              </Description>
+            </Block>
           ))
         }
       </Masonry>
-    </Wrapper2 >
+    </Wrapper2>
   )
-}
+}//이미지 컴포넌트 텍스트 독립화 하기
