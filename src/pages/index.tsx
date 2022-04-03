@@ -1,9 +1,10 @@
-import { Start, Wrapper } from "../styles/start";
+import { Start, Wrapper } from '../styles/start';
+import ActivityCard from '../components/home/ClubActivities';
 
 export default function Home() {
   return (
     <Wrapper>
-      <Start>Let's Start!</Start>
-    </Wrapper>//example
-  )
+      <ActivityCard />
+    </Wrapper>
+  );
 }
