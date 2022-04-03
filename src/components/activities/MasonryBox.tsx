@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Masonry, Block, Img, Description } from '../styles/acivities';
+import { Masonry, Block, Img, Description } from '../../styles/activities/acivities';
 import ModalWindow from './MasonryBox_Modal';
 export interface ImageSrc {
   url: string[];
@@ -45,10 +45,12 @@ const MasonryBox = () => {
     <Masonry>
       {
         imgSrc.map((item, index) => (
-          <Block key={index} onClick={onClick}>
-            <Img src={item.url[0]} />
-            <Description>{item.title}</Description>
-          </Block>
+          <>
+            <Block key={index} onClick={onClick}>
+              <Img src={item.url[0]} />
+              <Description>{item.title}</Description>
+            </Block>
+          </>
         ))
       }
       {

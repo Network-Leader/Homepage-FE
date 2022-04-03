@@ -23,6 +23,7 @@ export const Masonry = styled('div')`
   }
 `
 export const Block = styled('div')`
+  z-index: 0;
   margin: 5px;
   border-radius: 10px;
   background-position: center;
@@ -58,7 +59,6 @@ export const Block = styled('div')`
   `
 export const Img = styled('img')`
   width: 150%;
-  animation: all 1s linear;
   `
 export const Description = styled('h2')`
   position: absolute;

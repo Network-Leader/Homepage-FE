@@ -1,5 +1,5 @@
-import { Wrapper2 } from '../styles/acivities';
-import MasonryBox from '../components/MasonryBox';
+import { Wrapper2 } from '../styles/activities/acivities';
+import MasonryBox from '../components/activities/MasonryBox';
 
 
 const Activities = () => {
