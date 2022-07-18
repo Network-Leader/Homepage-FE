@@ -18,7 +18,7 @@ export interface IImageSrc {
 const MasonryBox = ({ windowWidth }: { windowWidth: number }) => {
   const { data: images, loading: loadingImages } = useFetch(
     "",
-    "/api/activity/images"
+    "/api/images/active?limit=18"
   );
 
   const [modal, setModal] = useState<IImageSrc>({
