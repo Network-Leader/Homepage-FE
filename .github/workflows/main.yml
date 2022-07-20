@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -44,26 +44,21 @@ jobs:
         run: npm run build
 
       - name: Create ZIP File 
-        run: zip -qq -r ./NL-FE-build.zip .
-        shell: bash
+        run: zip -qq -r ./NL-FE-build.zip . -x "*node_modules*"
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ap-northeast-2
 
       - name: Upload to S3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          aws s3 cp --region ap-northeast-2 ./NL-FE-build.zip s3://nl-fe-s3/FE/NL-FE-build.zip
+        run: aws s3 cp --region ap-northeast-2 ./NL-FE-build.zip s3://jongho-practice-s3/NL-FE-build.zip
           
       - name: Deploy to EC2
         run: aws deploy create-deployment
-          --application-name NL-CodeDeploy-FE
+          --application-name Jongho-Practice-Deploy
           --deployment-config-name CodeDeployDefault.AllAtOnce
-          --deployment-group-name NL_FE_Server
-          --s3-location bucket=nl-fe-s3,key=FE/NL-FE-build.zip,bundleType=zip
+          --deployment-group-name Jongho-Practice-Server
+          --s3-location bucket=jongho-practice-s3,key=NL-FE-build.zip,bundleType=zip
