@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
           <div className="info-box">
             <AlternateEmailIcon sx={{ color: grey[50] }} fontSize="small" />
-            <span className="info-text">newdeal123@nate.com</span>
+            <span className="info-text">newdeal1238@gmail.com</span>
           </div>
           <div className="info-box">
             <GitHubIcon sx={{ color: grey[50] }} fontSize="small" />
