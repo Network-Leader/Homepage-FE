@@ -2,23 +2,13 @@ import "@emotion/react";
 
 declare module "@emotion/react" {
   export interface Theme {
-    background: {
-      primary: string;
-      headerFooter: string;
-      block: string;
-      activity: string;
-      highlight: {
-        yellow: string;
-        orange: string;
-        purple: string;
-      };
-    };
     font: {
       size: {
         h1: number;
         h2: number;
         h3: number;
         h4: number;
+        xxlarge: number;
         xlarge: number;
         large: number;
         medium: number;
@@ -32,12 +22,27 @@ declare module "@emotion/react" {
         bold: number;
       };
       color: {
-        primary: string;
-        secondary: string;
+        black: string;
+        white: string;
         warning: string;
         highlight: string;
         block: string;
       };
+    };
+    background: {
+      white: string;
+      black: string;
+      block: string;
+      activity: string;
+      yellow: string;
+      orange: string;
+      purple: string;
+      lightpurple: string;
+    };
+    borderRadius: {
+      min: string;
+      default: string;
+      max: string;
     };
   }
 }
