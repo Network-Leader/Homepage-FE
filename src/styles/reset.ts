@@ -104,6 +104,7 @@ const reset = css`
     display: block;
   }
   body {
+    font-family: "Spoqa Han Sans Neo";
     line-height: 1;
   }
   ol,
