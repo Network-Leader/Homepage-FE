@@ -2,17 +2,65 @@ import React from "react";
 import styled from "@emotion/styled";
 
 interface TagPorps {
-  padding?: "min" | "max";
-  fontSize?: "small" | "xlarge" | "xxlarge";
-  fontWeight?: "bold";
-  color?: "black" | "highlight";
-  backgroundColor?: "block" | "purple" | "lightpurple" | "purpleopacity";
-  radius?: "min";
+  /**
+   * @default "medium"
+   */
+  padding?: "min" | "medium" | "max";
+  /**
+   * @default 'medium'
+   * @props fontSize small: 12px
+   * @props fontSize medium: 14px
+   * @props fontSize xlarge: 18px
+   * @props fontSize xxlarge: 20px
+   */
+  fontSize?: "small" | "medium" | "xlarge" | "xxlarge";
+  /**
+   * @default 'medium'
+   */
+  fontWeight?: "medium" | "bold";
+  /**
+   * @default 'black'
+   */
+  color?: "white" | "black" | "highlight";
+  /**
+   * @default 'black'
+   */
+  backgroundColor?:
+    | "black"
+    | "block"
+    | "purple"
+    | "lightpurple"
+    | "purpleopacity";
+  /**
+   * @default 'default'
+   * @props radius default: 10px
+   * @props radius min: 5px
+   */
+  radius?: "default" | "min";
+  /**
+   * @default 'none'
+   */
   icon?: "add" | "remove";
+  /**
+   * @default 'none'
+   * @description Apply onClick event to the tag
+   */
   onClick?: () => void;
   children: React.ReactNode;
 }
-
+/**
+ *
+ * @param padding
+ * @param fontSize
+ * @param fontWeight
+ * @param color
+ * @param backgroundColor
+ * @param radius
+ * @param icon
+ * @param onClick
+ * @param children
+ * @returns JSX.Element
+ */
 const Tag = ({
   padding,
   fontSize,
@@ -31,20 +79,12 @@ const Tag = ({
       : padding === "min"
       ? "4px 5px"
       : "4px 20px"};
-    border-radius: ${({ theme }) =>
-      !radius ? theme.borderRadius.default : theme.borderRadius.min};
-    font-size: ${({ theme }) =>
-      !fontSize ? theme.font.size.medium : theme.font.size[fontSize]}px;
-    font-weight: ${({ theme }) =>
-      fontWeight === "bold" ? fontWeight : theme.font.weight.medium};
-    color: ${({ theme }) =>
-      !color ? theme.font.color.white : theme.font.color[color]};
+    border-radius: ${({ theme }) => theme.borderRadius[radius ?? "default"]};
+    font-size: ${({ theme }) => theme.font.size[fontSize ?? "medium"]}px;
+    font-weight: ${({ theme }) => theme.font.weight[fontWeight ?? "medium"]};
+    color: ${({ theme }) => theme.font.color[color ?? "black"]};
     background-color: ${({ theme }) =>
-      !backgroundColor
-        ? theme.background.black
-        : backgroundColor === "purpleopacity"
-        ? `rgba(153, 137, 247, 0.1)`
-        : theme.background[backgroundColor]};
+      theme.background[backgroundColor ?? "purple"]};
   `;
   return (
     <Component onClick={onClick}>

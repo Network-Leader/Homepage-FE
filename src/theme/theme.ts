@@ -37,6 +37,7 @@ const theme: Theme = {
     orange: "#FFA96B",
     purple: "#9989F7",
     lightpurple: "#DAD4FD",
+    purpleopacity: "rgba(153, 137, 247, 0.1)",
   },
   borderRadius: {
     min: "5px",

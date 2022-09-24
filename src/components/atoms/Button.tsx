@@ -2,18 +2,64 @@ import React from "react";
 import styled from "@emotion/styled";
 
 interface ButtonPorps {
-  width: string;
-  height: string;
-  fontSize?: "xxlarge";
-  fontWeight?: "bold";
-  color?: "black";
+  /**
+   * @default "100px"
+   */
+  width?: string;
+  /**
+   * @default "40px"
+   */
+  height?: string;
+  /**
+   * @default 'medium'
+   * @props fontSize medium: 14px
+   * @props fontSize xxlarge: 20px
+   */
+  fontSize?: "medium" | "xxlarge";
+  /**
+   * @default 'medium'
+   */
+  fontWeight?: "medium" | "bold";
+  /**
+   * @default 'white'
+   */
+  color?: "white" | "black";
+  /**
+   * @default 'purple'
+   */
   backgroundColor?: "black" | "block";
-  radius?: "min" | "max";
+  /**
+   * @default 'default'
+   * @props radius default: 10px
+   * @props radius min: 5px
+   * @props radius max: 20px
+   */
+  radius?: "min" | "default" | "max";
+  /**
+   * @default 'button'
+   */
   type?: "submit";
+  /**
+   * @default 'none'
+   * @description Apply onClick event to the button
+   */
   onClick?: () => void;
   children: React.ReactNode;
 }
 
+/**
+ * @param width
+ * @param height
+ * @param fontSize
+ * @param fontWeight
+ * @param color
+ * @param backgroundColor
+ * @param radius
+ * @param type
+ * @param onClick
+ * @param children
+ * @returns JSX.Element
+ */
 const Button = ({
   width,
   height,
@@ -27,8 +73,8 @@ const Button = ({
   children,
 }: ButtonPorps) => {
   const Component = styled.button`
-    width: ${width};
-    height: ${height};
+    width: ${width ?? "100px"};
+    height: ${height ?? "40px"};
     border-radius: ${({ theme }) =>
       radius === "min"
         ? theme.borderRadius.min

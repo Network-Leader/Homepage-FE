@@ -38,6 +38,7 @@ declare module "@emotion/react" {
       orange: string;
       purple: string;
       lightpurple: string;
+      purpleopacity: string;
     };
     borderRadius: {
       min: string;
