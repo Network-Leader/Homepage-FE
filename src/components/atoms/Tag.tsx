@@ -31,24 +31,20 @@ const Tag = ({
       : padding === "min"
       ? "4px 5px"
       : "4px 20px"};
-    border-radius: ${(props) =>
-      !radius
-        ? props.theme.borderRadius.default
-        : props.theme.borderRadius.min};
-    font-size: ${(props) =>
-      !fontSize
-        ? props.theme.font.size.medium
-        : props.theme.font.size[fontSize]}px;
-    font-weight: ${(props) =>
-      fontWeight === "bold" ? fontWeight : props.theme.font.weight.medium};
-    color: ${(props) =>
-      !color ? props.theme.font.color.white : props.theme.font.color[color]};
-    background-color: ${(props) =>
+    border-radius: ${({ theme }) =>
+      !radius ? theme.borderRadius.default : theme.borderRadius.min};
+    font-size: ${({ theme }) =>
+      !fontSize ? theme.font.size.medium : theme.font.size[fontSize]}px;
+    font-weight: ${({ theme }) =>
+      fontWeight === "bold" ? fontWeight : theme.font.weight.medium};
+    color: ${({ theme }) =>
+      !color ? theme.font.color.white : theme.font.color[color]};
+    background-color: ${({ theme }) =>
       !backgroundColor
-        ? props.theme.background.black
+        ? theme.background.black
         : backgroundColor === "purpleopacity"
         ? `rgba(153, 137, 247, 0.1)`
-        : props.theme.background[backgroundColor]};
+        : theme.background[backgroundColor]};
   `;
   return (
     <Component onClick={onClick}>

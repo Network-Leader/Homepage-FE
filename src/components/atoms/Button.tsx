@@ -29,26 +29,22 @@ const Button = ({
   const Component = styled.button`
     width: ${width};
     height: ${height};
-    border-radius: ${(props) =>
+    border-radius: ${({ theme }) =>
       radius === "min"
-        ? props.theme.borderRadius.min
+        ? theme.borderRadius.min
         : radius === "max"
-        ? props.theme.borderRadius.max
-        : props.theme.borderRadius.default};
-    font-size: ${(props) =>
-      !fontSize
-        ? props.theme.font.size.medium
-        : props.theme.font.size[fontSize]}px;
-    font-weight: ${(props) =>
-      !fontWeight
-        ? props.theme.font.weight.medium
-        : props.theme.font.weight[fontWeight]};
-    color: ${(props) =>
-      !color ? props.theme.font.color.white : props.theme.font.color[color]};
-    background-color: ${(props) =>
+        ? theme.borderRadius.max
+        : theme.borderRadius.default};
+    font-size: ${({ theme }) =>
+      !fontSize ? theme.font.size.medium : theme.font.size[fontSize]}px;
+    font-weight: ${({ theme }) =>
+      !fontWeight ? theme.font.weight.medium : theme.font.weight[fontWeight]};
+    color: ${({ theme }) =>
+      !color ? theme.font.color.white : theme.font.color[color]};
+    background-color: ${({ theme }) =>
       !backgroundColor
-        ? props.theme.background.purple
-        : props.theme.background[backgroundColor]};
+        ? theme.background.purple
+        : theme.background[backgroundColor]};
     cursor: pointer;
     border: none;
   `;
