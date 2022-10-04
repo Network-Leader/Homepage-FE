@@ -32,7 +32,7 @@ function Header(props: Props) {
         ))
         }
       <div>
-      {props.authenticated ? props.profile?.name : <a href="/signin">로그인</a>}
+      {props.authenticated ? props.profile?.name : <Nav color="white" size="small" children='login' url='/signin'/>}
       </div>
       </HeaderContents>
     </HeaderBox>

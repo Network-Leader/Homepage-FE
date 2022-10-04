@@ -6,7 +6,7 @@ import Header from "./Header";
 const Layout = () => {
   return (
     <div>
-      <Header authenticated={true} profile={null}/>
+      <Header authenticated={false} profile={null}/>
 
       <Outlet/>
 
