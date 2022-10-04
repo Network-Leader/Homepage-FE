@@ -14,7 +14,7 @@ export interface ScrollYType {
 
 const VideoTextSection = () => {
   const scrollY = useScrollY();
-  const src = `https://www.youtube.com/embed/0asvzeLD8a8?&autoplay=1&showinfo=0&mute=1&loop=1&playlist=0asvzeLD8a8&controls=0&modestbranding=1&disablekb=1&iv_load_policy=3&showinfo=1&start=40`;
+  const src = `https://www.youtube.com/embed/ttc8Q39E0zI?&autoplay=1&showinfo=0&mute=1&loop=1&playlist=ttc8Q39E0zI&controls=0&modestbranding=1&disablekb=1&iv_load_policy=3&showinfo=1&start=30`;
   return (
     <VideoContainer>
       <VideoBox scrollY={scrollY}>
