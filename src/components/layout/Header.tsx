@@ -1,7 +1,9 @@
 import React from "react";
 import { HeaderBox, HeaderContents, HeaderMenuItem, LogoBox } from "../../styles/layout/header";
 import { ReactComponent as NLlogo } from '../../assets/NL_logo-white-ori.svg'
-// import { Nav } from "../common";
+import { Nav } from "../common";
+import { Link } from "react-router-dom";
+
 type User = {name: string;}
 
 type Props =
@@ -17,15 +19,16 @@ const menuList = [
 function Header(props: Props) {
   return (
     <HeaderBox>
-      
-      {/* <Nav children={<NLlogo/>} url="/"/> */}
       <LogoBox>
-        <NLlogo/>
+        <Link to="/">
+          <NLlogo/>
+        </Link>
       </LogoBox>
-      <NLlogo/>
       <HeaderContents>
         {menuList.map((item, index) => (
-          <HeaderMenuItem>{item}</HeaderMenuItem>
+          <HeaderMenuItem>
+            <Nav color="white" size="large" children={item} url={item}/>
+          </HeaderMenuItem>
         ))
         }
       <div>

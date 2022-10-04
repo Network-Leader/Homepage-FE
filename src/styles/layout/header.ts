@@ -16,22 +16,27 @@ const HeaderContents = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: white;
+  margin-left: 400px;
 `
 
 const HeaderMenuItem = styled.div`
   display: flex;
   position: relative;
-  margin-left: 60px;
   align-items: center;
   text-align: center;
+  justify-content: center;
+  min-width: 100px;
   height: 100%;
   cursor: pointer;
 `
 
 const LogoBox = styled.div`
   left: 205px;
-  margin-top: 4px;
+  padding-top: 4px;
+  margin-left: 100px;
+  min-width: 211px;
+  min-height: 101px;
+  cursor: pointer;
 `
 
 export { 

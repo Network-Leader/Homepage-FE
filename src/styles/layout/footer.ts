@@ -5,7 +5,8 @@ const FooterBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1441px;
+  /* width: 1441px; */
+  width: 100%;
   height: 318px;
   left: 0px;
   top: 6057px;
@@ -14,8 +15,6 @@ const FooterBox = styled.div`
 
 const FooterIconBox = styled.div`
   display: flex;
-  /* display: grid; */
-  /* place-items: center; */
   min-height: 35px;
   margin-top: 148px;
   min-width: 942px;
@@ -24,8 +23,6 @@ const FooterIconBox = styled.div`
 `
 
 const FooterContents = styled.div`
-  
-  /* display: flex; */
   min-width: 942px;
   color: white;
   padding: 40px 0px;
