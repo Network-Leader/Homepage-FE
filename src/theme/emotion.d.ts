@@ -27,6 +27,7 @@ declare module "@emotion/react" {
         warning: string;
         highlight: string;
         block: string;
+        foot: string;
       };
     };
     background: {

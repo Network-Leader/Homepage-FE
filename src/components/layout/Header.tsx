@@ -1,0 +1,39 @@
+import React from "react";
+import { HeaderBox, HeaderContents, HeaderMenuItem, LogoBox } from "../../styles/layout/header";
+import { ReactComponent as NLlogo } from '../../assets/NL_logo-white-ori.svg'
+// import { Nav } from "../common";
+type User = {name: string;}
+
+type Props =
+{
+  authenticated: boolean;
+  profile: User | null;
+}
+
+const menuList = [
+  '로그인', '소개', '활동', '팀 블로그', '지원'
+]
+
+function Header(props: Props) {
+  return (
+    <HeaderBox>
+      
+      {/* <Nav children={<NLlogo/>} url="/"/> */}
+      <LogoBox>
+        <NLlogo/>
+      </LogoBox>
+      <NLlogo/>
+      <HeaderContents>
+        {menuList.map((item, index) => (
+          <HeaderMenuItem>{item}</HeaderMenuItem>
+        ))
+        }
+      <div>
+      {props.authenticated ? props.profile?.name : <a href="/signin">로그인</a>}
+      </div>
+      </HeaderContents>
+    </HeaderBox>
+  )
+}
+
+export default Header

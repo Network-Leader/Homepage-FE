@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 interface TextProps {
   size: "h1" | "h2" | "h3" | "h4" | "xlarge" | "large" | "medium" | "small";
   weight?: "bold" | "medium" | "regular" | "light" | "thin";
-  color?: "black" | "white" | "warning" | "highlight" | "block";
+  color?: "black" | "white" | "warning" | "highlight" | "block" | "foot";
   lineheight?: string;
   children: React.ReactNode;
 }
