@@ -9,7 +9,8 @@ const HeaderBox = styled.div`
   width: 100%;
   height: 105px;
   z-index: 999;
-  background-color: black;
+  /* background-color: black; */
+  background-image: linear-gradient(to right, black 200px, transparent 200px 411px, black 411px 100%)
 `
 
 const HeaderContents = styled.div`
@@ -32,8 +33,7 @@ const HeaderMenuItem = styled.div`
 
 const LogoBox = styled.div`
   left: 205px;
-  padding-top: 4px;
-  margin-left: 100px;
+  margin-left: 200px;
   min-width: 211px;
   min-height: 101px;
   cursor: pointer;

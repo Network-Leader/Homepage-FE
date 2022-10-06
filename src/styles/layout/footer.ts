@@ -10,7 +10,7 @@ const FooterBox = styled.div`
   height: 318px;
   left: 0px;
   top: 6057px;
-  background-color: #333;
+  background-color: black;
 `
 
 const FooterIconBox = styled.div`
