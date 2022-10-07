@@ -20,8 +20,7 @@ export const VideoBox = styled.div<{ scrollY: number }>`
 `;
 export const VideoIframe = styled.iframe`
   width: 100%;
-  height: max(calc(100vw / 16 * 9));
-  //   transform: scale(1.5, 1);
+  height: max(100%, calc(100vw / 16 * 9));
 `;
 
 export const FirstTextBox = styled.div<{ scrollY: number }>`
