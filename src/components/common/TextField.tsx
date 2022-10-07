@@ -6,42 +6,34 @@ interface TextFieldProps {
    * @default 'inline'
    */
   display?: "block" | "inline" | "inline-block";
-
   /**
    * @default 'auto'
    */
   width?: string;
-
   /**
    * @default 'auto'
    */
   height?: string;
-
   /**
    * @default '0'
    */
   margin?: string;
-
   /**
    * @default 'standard'
    */
   variant?: "standard" | "outlined";
-
   /**
    * @default 'text'
    */
   type?: "text" | "password" | "email" | "url";
-
   disabled?: boolean;
   error?: boolean;
   placeholder?: string;
   helperText?: string; // TODO: Add helper text
-
   /**
    * @default 'large'
    */
   size?: "small" | "large";
-
   value?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   children?: React.ReactNode;
@@ -86,6 +78,7 @@ function TextField(props: TextFieldProps) {
         disabled={props.disabled}
         placeholder={props.placeholder}
         value={props.value}
+        onChange={props.onChange}
       />
       {props.helperText}
     </Label>

@@ -31,7 +31,7 @@ const theme: Theme = {
   background: {
     white: "#FFFFFF",
     black: "#000000",
-    block: "#868686",
+    block: "#E7E7E7",
     activity: "#F0F0F8",
     yellow: "#FFDF6B",
     orange: "#FFA96B",

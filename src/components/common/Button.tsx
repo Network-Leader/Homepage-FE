@@ -44,6 +44,8 @@ interface ButtonPorps {
    * @description Apply onClick event to the button
    */
   onClick?: () => void;
+  hoverBgColor?: "purple" | "black" | "block";
+  hoverColor?: "white" | "black";
   children: React.ReactNode;
 }
 
@@ -70,6 +72,8 @@ const Button = ({
   radius,
   type,
   onClick,
+  hoverBgColor,
+  hoverColor,
   children,
 }: ButtonPorps) => {
   const Component = styled.button`
@@ -93,6 +97,13 @@ const Button = ({
         : theme.background[backgroundColor]};
     cursor: pointer;
     border: none;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: ${({ theme }) =>
+        !hoverColor ? color : theme.font.color[hoverColor]};
+      background-color: ${({ theme }) =>
+        !hoverBgColor ? backgroundColor : theme.background[hoverBgColor]};
+    }
   `;
   return (
     <Component type={type === "submit" ? "submit" : "button"} onClick={onClick}>
