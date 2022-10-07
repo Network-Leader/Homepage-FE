@@ -26,6 +26,7 @@ const theme: Theme = {
       warning: "#FF3939",
       highlight: "#9989F7",
       block: "#868686",
+      foot: "#BEBEBE"
     },
   },
   background: {
