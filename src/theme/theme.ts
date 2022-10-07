@@ -3,7 +3,7 @@ import { Theme } from "@emotion/react";
 const theme: Theme = {
   font: {
     size: {
-      h1: 72,
+      h1: 64,
       h2: 36,
       h3: 32,
       h4: 24,
@@ -32,7 +32,7 @@ const theme: Theme = {
   background: {
     white: "#FFFFFF",
     black: "#000000",
-    block: "#868686",
+    block: "#E7E7E7",
     activity: "#F0F0F8",
     yellow: "#FFDF6B",
     orange: "#FFA96B",
