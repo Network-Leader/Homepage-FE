@@ -4,7 +4,7 @@ import {
   HeaderMenuItem,
   LogoBox,
 } from "../../styles/layout/header";
-import { ReactComponent as NLlogo } from "../../assets/NL_LOGO.svg";
+import { ReactComponent as NLlogo } from "../../assets/logo/NL_LOGO.svg";
 import { Nav } from "../common";
 import { Link } from "react-router-dom";
 

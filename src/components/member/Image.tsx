@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import member from "../../assets/member.png";
+import member from "../../assets/sign/member.png";
 
 const ImageContainer = styled.div`
   width: calc(100% - 590px);

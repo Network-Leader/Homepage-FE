@@ -75,7 +75,7 @@ const Tag = ({
   const Component = styled.span`
     min-width: 10px;
     padding: ${!padding
-      ? "4px 12px"
+      ? "8px 12px"
       : padding === "min"
       ? "4px 5px"
       : "4px 20px"};

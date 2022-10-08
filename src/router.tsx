@@ -20,7 +20,7 @@ function Router() {
           <Route path="calender" element={<Calender />} />
           <Route path="activity" element={<Activity />}>
             <Route path="add" />
-            <Route path=":content" />
+            <Route path=":contentId" />
           </Route>
         </Route>
         <Route path="member" element={<Member />}>

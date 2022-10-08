@@ -3,7 +3,7 @@ import {
   FooterContents,
   FooterIconBox,
 } from "../../styles/layout/footer";
-import { ReactComponent as NLslogo } from "../../assets/NL_logo-white.svg";
+import { ReactComponent as NLslogo } from "../../assets/logo/NL_logo-white.svg";
 import { Text } from "../common";
 
 function Footer() {

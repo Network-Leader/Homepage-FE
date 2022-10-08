@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { CategotyProps } from "../../../pages/activity";
-import Category from "./category";
+import Category from "./Category";
 
 const CategoryContainer = styled.div`
   width: 1017px;

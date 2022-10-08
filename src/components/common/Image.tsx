@@ -38,8 +38,8 @@ interface ImageProps {
 
 function Image(props: ImageProps) {
   const Component = styled.img`
-    width: ${props.width ?? "auto"};
-    height: ${props.height ?? "auto"};
+    width: ${`${props.width}px` ?? "auto"};
+    height: ${`${props.height}px` ?? "auto"};
     border-radius: ${props.shape === "circle"
       ? "50%"
       : props.shape === "rounded"
