@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 
 const RegisterButtonContainer = styled.div`
   width: 100%;
@@ -26,9 +27,17 @@ const RegisterButtonContainer = styled.div`
 `;
 
 const RegisterButton = () => {
+  const nav = useNavigate();
   return (
     <RegisterButtonContainer>
-      <button className="cancel">취소</button>
+      <button
+        className="cancel"
+        onClick={() => {
+          nav("/activity");
+        }}
+      >
+        취소
+      </button>
       <button className="register">신청하기</button>
     </RegisterButtonContainer>
   );

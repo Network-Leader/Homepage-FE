@@ -1,28 +1,49 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import timer from "../../../../assets/activity/timer.png";
 import { Text } from "../../../common";
 
+const TimerAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
+
 const DeadLineContainer = styled.div`
-  width: 180px;
+  width: 210px;
   height: 17px;
   display: flex;
   align-items: center;
-  margin-left: 230px;
+  margin: 0 0 0 195px;
   .timer {
     margin: 0 5px 0 0;
+    animation: ${TimerAnimation} 0.5s infinite;
   }
   .mixedTimer {
-    width: 155px;
+    width: 190px;
     display: flex;
     justify-content: space-between;
   }
 `;
 
 const DeadLine = ({ diff }: { diff: number }) => {
-  const [day, hour, minute] = [
+  const [day, hour, minute, second] = [
     Math.floor(diff / (1000 * 60 * 60 * 24)),
     Math.floor((diff / (1000 * 60 * 60)) % 24),
     Math.floor((diff / 1000 / 60) % 60),
+    Math.floor((diff / 1000) % 60),
   ];
   return (
     <DeadLineContainer>
@@ -32,7 +53,10 @@ const DeadLine = ({ diff }: { diff: number }) => {
           신청마감까지
         </Text>
         <Text size="small" color="highlight">
-          {day}일 {hour}시간 {minute}분
+          {`${day.toString().padStart(2, "0")}`}일{" "}
+          {`${hour.toString().padStart(2, "0")}`}시간{" "}
+          {`${minute.toString().padStart(2, "0")}`}분{" "}
+          {`${second.toString().padStart(2, "0")}`}초
         </Text>
       </div>
     </DeadLineContainer>

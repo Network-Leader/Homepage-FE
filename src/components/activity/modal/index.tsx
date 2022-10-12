@@ -8,13 +8,15 @@ import ModalBody from "./body";
 import dummyImg from "../../../assets/dummy/modalImg.png";
 import ModalTag from "./Tag";
 import ModalButton from "./button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ModalContainer = styled.div`
   width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 105px 0 0 0;
   background-color: #696969;
 `;
 
@@ -25,7 +27,6 @@ const ModalTemplate = styled.div`
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  margin: 180px 0 90px 0;
   padding: 60px 40px 35px 40px;
   background-color: ${({ theme }) => theme.background.white};
   border-radius: ${({ theme }) => theme.borderRadius.default};
@@ -67,8 +68,15 @@ const dummyModalData: ModalProps = {
 };
 
 const Template = () => {
-  const now = new Date(Date.now());
-  const diff = dummyModalData.deadline.getTime() - now.getTime();
+  const [diff, setDiff] = useState(
+    dummyModalData.deadline.getTime() - new Date(Date.now()).getTime()
+  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDiff((prev) => prev - 1000);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [diff]);
   return (
     <ModalContainer>
       <ModalTemplate>

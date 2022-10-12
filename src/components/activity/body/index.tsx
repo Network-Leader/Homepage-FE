@@ -47,7 +47,7 @@ const dummyActivity: ContentProps[] = [
   },
   {
     id: 4,
-    title: "SW Maestro",
+    title: "SW Maestro 특강",
     classification: "특강",
     generation: 1,
     leader: "cw-seo",

@@ -4,7 +4,7 @@ import { Image } from "../../../common";
 const ThumbnailContainer = styled.div`
   width: 405px;
   height: 265px;
-  position: relative;
+  /* position: relative;
   .layer {
     width: 100%;
     height: 100%;
@@ -16,7 +16,7 @@ const ThumbnailContainer = styled.div`
       rgba(248, 248, 248, 0) -28.1%,
       rgba(64, 64, 64, 0.4) 26.59%
     );
-  }
+  } */
 `;
 
 const Thumbnail = ({ thumb }: { thumb: string }) => {
@@ -31,7 +31,7 @@ const Thumbnail = ({ thumb }: { thumb: string }) => {
         display="inline-block"
         shape="rounded"
       />
-      <div className="layer" />
+      {/* <div className="layer" /> */}
     </ThumbnailContainer>
   );
 };
