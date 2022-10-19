@@ -1,48 +1,11 @@
-import styled from "@emotion/styled";
-import { ModalProps } from ".";
-import { Tag, Text } from "../../common";
-import leaderIcon from "../../../assets/activity/leader.png";
-import generationIcon from "../../../assets/activity/generation.png";
-import registerIcon from "../../../assets/activity/register.png";
+import { ModalProps } from "..";
+import { Tag, Text } from "../../../common";
+import leaderIcon from "../../../../assets/GUIicon/leader.png";
+import generationIcon from "../../../../assets/GUIicon/generation.png";
+import registerIcon from "../../../../assets/GUIicon/limit_person.png";
+import { Header } from "../../../../styles/activity/modal/template";
 
-const Header = styled.div`
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .left {
-    display: flex;
-    align-items: center;
-    .tag {
-      width: 125px;
-      display: flex;
-      justify-content: space-between;
-      margin: 0 0 0 15px;
-    }
-  }
-  .right {
-    width: 410px;
-    display: flex;
-    justify-content: space-between;
-    .info {
-      width: auto;
-      display: flex;
-      align-items: center;
-      .key {
-        margin: 10px;
-        display: flex;
-        align-items: center;
-        .icon {
-          margin: 0 5px 0 0;
-        }
-      }
-      .value {
-      }
-    }
-  }
-`;
-const ModalHeader = ({
+const RegisterModalHeader = ({
   data: { title, classification, limit, registry, leader, generation },
   diff,
 }: {
@@ -100,4 +63,4 @@ const ModalHeader = ({
   );
 };
 
-export default ModalHeader;
+export default RegisterModalHeader;

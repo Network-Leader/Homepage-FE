@@ -3,7 +3,10 @@ import React from "react";
 import { CategotyProps } from "../../../pages/activity";
 import { Text } from "../../common";
 
-const TagContainer = styled.div<{ selected: boolean }>`
+const TagContainer = styled.div<{
+  selected: boolean;
+  categoryColor: string;
+}>`
   height: 22px;
   display: flex;
   align-items: center;
@@ -13,8 +16,10 @@ const TagContainer = styled.div<{ selected: boolean }>`
     width: 8px;
     height: 8px;
     border-radius: 50%;
+    transition: background-color 0.2s linear;
     margin: 0 8px 0 0;
-    background-color: ${({ selected }) => (selected ? "#000000" : "#868686")};
+    background-color: ${({ selected, categoryColor }) =>
+      selected ? categoryColor : "#868686"};
   }
 `;
 
@@ -42,12 +47,15 @@ const Category = ({
     }
     setCategory(newCategory);
   };
+  const { color } = category.filter((item) => item.selected)[0];
+
   return (
     <TagContainer
       onClick={() => {
         onClick(index);
       }}
       selected={selected}
+      categoryColor={color}
     >
       <div className="selected" />
       <Text size="medium" weight="medium" color={selected ? "black" : "block"}>

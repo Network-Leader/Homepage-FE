@@ -8,6 +8,7 @@ import Activity from "./pages/activity";
 import Calender from "./pages/calender";
 import About from "./pages/about";
 import Board from "./pages/board";
+import Template from "./components/activity/modal";
 
 function Router() {
   return (
@@ -19,8 +20,8 @@ function Router() {
           <Route path="board" element={<Board />} />
           <Route path="calender" element={<Calender />} />
           <Route path="activity" element={<Activity />}>
-            <Route path="add" />
-            <Route path=":contentId" />
+            <Route path="add" element={<Template />} />
+            <Route path=":contentId" element={<Template />} />
           </Route>
         </Route>
         <Route path="member" element={<Member />}>

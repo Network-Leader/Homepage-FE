@@ -1,17 +1,9 @@
-import styled from "@emotion/styled";
-import { ModalProps } from "..";
+import { ModalProps } from "../..";
+import { ModalBodyContainer } from "../../../../../styles/activity/modal/template";
 import Description from "./Description";
 import Thumbnail from "./Thumbnail";
 
-const ModalBodyContainer = styled.div`
-  width: 100%;
-  height: 310px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #f1f1f1;
-`;
-
-const ModalBody = ({
+const RegisterModalBody = ({
   data: { description, thumbnail },
 }: {
   data: ModalProps;
@@ -24,4 +16,4 @@ const ModalBody = ({
   );
 };
 
-export default ModalBody;
+export default RegisterModalBody;

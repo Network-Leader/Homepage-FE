@@ -1,7 +1,7 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-import timer from "../../../../assets/activity/timer.png";
-import { Text } from "../../../common";
+import timer from "../../../../../assets/GUIicon/timer.png";
+import { Text } from "../../../../common";
 
 const TimerAnimation = keyframes`
   0% {
@@ -28,6 +28,7 @@ const DeadLineContainer = styled.div`
   align-items: center;
   margin: 0 0 0 195px;
   .timer {
+    width: 15.16px;
     margin: 0 5px 0 0;
     animation: ${TimerAnimation} 0.5s infinite;
   }

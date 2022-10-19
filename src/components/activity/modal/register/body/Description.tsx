@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Text } from "../../../common";
+import { Text } from "../../../../common";
 
 const DescriptionContainer = styled.div`
   width: 470px;
@@ -19,7 +19,7 @@ const Paragraph = styled.p`
   line-height: 191.2%;
 `;
 
-const Description = ({ description }: { description: string }) => {
+const Description = ({ description }: { description: string | null }) => {
   return (
     <DescriptionContainer>
       <Text size="medium" weight="medium">

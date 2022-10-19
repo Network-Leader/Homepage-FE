@@ -5,13 +5,24 @@ import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { CategotyProps } from "../../../pages/activity";
 import Content from "./content";
+import addIcon from "../../../assets/GUIicon/add.png";
 /**
  * @dummyImport
  */
-import activityImg from "../../../assets/dummy/activityImg.png";
 import activityImg2 from "../../../assets/dummy/activityImg2.png";
 import activityImg3 from "../../../assets/dummy/activityImg3.png";
 import activityImg4 from "../../../assets/dummy/activityImg4.png";
+import { useNavigate } from "react-router-dom";
+
+export interface ContentProps {
+  id: number;
+  title: string;
+  classification: "클래스" | "스터디" | "특강";
+  generation: number;
+  leader: string;
+  thumbnail: string | null;
+}
+
 const dummyActivity: ContentProps[] = [
   {
     id: 0,
@@ -19,7 +30,7 @@ const dummyActivity: ContentProps[] = [
     classification: "스터디",
     generation: 1,
     leader: "Jerry Kim",
-    thumbnail: activityImg,
+    thumbnail: null,
   },
   {
     id: 1,
@@ -35,7 +46,7 @@ const dummyActivity: ContentProps[] = [
     classification: "클래스",
     generation: 1,
     leader: "Happy Jamy",
-    thumbnail: activityImg3,
+    thumbnail: null,
   },
   {
     id: 3,
@@ -43,7 +54,7 @@ const dummyActivity: ContentProps[] = [
     classification: "스터디",
     generation: 1,
     leader: "J-ho",
-    thumbnail: activityImg4,
+    thumbnail: activityImg3,
   },
   {
     id: 4,
@@ -51,7 +62,7 @@ const dummyActivity: ContentProps[] = [
     classification: "특강",
     generation: 1,
     leader: "cw-seo",
-    thumbnail: activityImg2,
+    thumbnail: null,
   },
   {
     id: 5,
@@ -59,7 +70,7 @@ const dummyActivity: ContentProps[] = [
     classification: "특강",
     generation: 1,
     leader: "dann",
-    thumbnail: activityImg,
+    thumbnail: null,
   },
   {
     id: 6,
@@ -83,28 +94,39 @@ const dummyActivity: ContentProps[] = [
     classification: "클래스",
     generation: 1,
     leader: "cw - seo",
-    thumbnail: activityImg,
+    thumbnail: null,
   },
 ];
 
+const BodyContainerContainer = styled.div`
+  width: 1017px;
+  min-height: 1027px;
+  position: relative;
+  padding: 0 0 200px 0;
+  .addBox {
+    width: 100px;
+    height: 1207px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: -100px;
+    .add {
+      width: 48px;
+      cursor: pointer;
+    }
+  }
+`;
 const BodyContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 50.57px;
   grid-row-gap: 43.28px;
-  padding: 0 0 200px 0;
 `;
 
-export interface ContentProps {
-  id: number;
-  title: string;
-  classification: "클래스" | "스터디" | "특강";
-  generation: number;
-  leader: string;
-  thumbnail: string;
-}
-
 const Body = ({ category }: { category: CategotyProps[] }) => {
+  const nav = useNavigate();
   const [contents, setContents] = useState<ContentProps[]>(dummyActivity);
   useEffect(() => {
     const selectedCategory = category.find(({ selected }) => selected);
@@ -118,11 +140,22 @@ const Body = ({ category }: { category: CategotyProps[] }) => {
     }
   }, [category]);
   return (
-    <BodyContainer>
-      {contents.map((activity) => (
-        <Content key={activity.id} activity={activity} />
-      ))}
-    </BodyContainer>
+    <BodyContainerContainer>
+      <BodyContainer>
+        {contents.map((activity) => (
+          <Content key={activity.id} activity={activity} />
+        ))}
+      </BodyContainer>
+      <div className="addBox">
+        <div
+          onClick={() => {
+            nav("add");
+          }}
+        >
+          <img src={addIcon} alt="add" className="add" />
+        </div>
+      </div>
+    </BodyContainerContainer>
   );
 };
 

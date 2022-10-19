@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Tag, Text } from "../../common";
+import { Tag, Text } from "../../../common";
 
 const TagContainer = styled.div`
   width: 100%;
@@ -20,15 +20,15 @@ const Tags = styled.div`
   }
 `;
 
-const ModalTag = ({ tags }: { tags: string[] }) => {
+const RegisterModalTag = ({ tags }: { tags: string[] | null }) => {
   return (
     <TagContainer>
       <Text size="medium" weight="medium">
         태그
       </Text>
       <Tags>
-        {tags.map((tag) => (
-          <div className="margin">
+        {tags?.map((tag) => (
+          <div className="margin" key={tag}>
             <Tag color="white" backgroundColor="black" radius="min">
               <Text size="medium" weight="medium" color="white">
                 {tag}
@@ -41,4 +41,4 @@ const ModalTag = ({ tags }: { tags: string[] }) => {
   );
 };
 
-export default ModalTag;
+export default RegisterModalTag;
