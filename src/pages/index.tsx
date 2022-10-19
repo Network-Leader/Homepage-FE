@@ -1,4 +1,3 @@
-import React from "react";
 import VideoTextSection from "../components/mainpage/videoTextSection";
 
 const MainPage = () => {
