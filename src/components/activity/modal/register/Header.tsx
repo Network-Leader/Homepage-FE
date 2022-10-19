@@ -42,6 +42,7 @@ const RegisterModalHeader = ({
           <Tag radius="min" color="highlight" backgroundColor="lightpurple">
             D-{Math.floor(diff / (1000 * 60 * 60 * 24))}
           </Tag>
+          {/* 업데이트 예정 */}
         </div>
       </div>
       <div className="right">

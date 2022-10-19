@@ -4,8 +4,8 @@ import { ModalBodyContainer } from "../../../../../../styles/activity/modal/temp
 import { Image, Text } from "../../../../../common";
 import modal_icon from "../../../../../../assets/GUIicon/modal_icon.png";
 import upload_icon from "../../../../../../assets/GUIicon/upload_icon.png";
+import edit_icon from "../../../../../../assets/GUIicon/edit.png";
 import { useEffect, useRef, useState } from "react";
-import Thumbnail from "../../../register/body/Thumbnail";
 
 const TextForm = styled.div`
   width: 490px;
@@ -19,8 +19,10 @@ const TextForm = styled.div`
     text-indent: 5px;
     border: 1px solid #dcdcdc;
     border-radius: ${({ theme }) => theme.borderRadius.min};
+    transition: all 0.2s linear;
     &:focus {
       outline: none;
+      border: 1px solid ${({ theme }) => theme.background.purple};
     }
   }
   .rowInputBox {
@@ -63,14 +65,16 @@ const TextForm = styled.div`
       border: 1px solid #dcdcdc;
       border-radius: ${({ theme }) => theme.borderRadius.min};
       text-indent: 5px;
+      transition: all 0.2s linear;
       &:focus {
         outline: none;
+        border: 1px solid ${({ theme }) => theme.background.purple};
       }
     }
   }
 `;
 
-const ImgForm = styled.div`
+const ImgForm = styled.div<{ fileDataURL: string | null }>`
   width: 405px;
   height: 100%;
   display: flex;
@@ -83,7 +87,9 @@ const ImgForm = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: 5px 5px 10px 5px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid
+      ${({ theme, fileDataURL }) =>
+        fileDataURL ? theme.background.purple : "#dcdcdc"};
     border-radius: ${({ theme }) => theme.borderRadius.min};
     .thumbnailPick {
       width: 100%;
@@ -110,13 +116,12 @@ const ImgForm = styled.div`
       display: flex;
       align-items: center;
       .upload {
-        color: #dcdcdc;
         font-size: ${({ theme }) => theme.font.size.small}px;
         font-weight: ${({ theme }) => theme.font.weight.medium};
         cursor: pointer;
         transition: all 0.1s linear;
         &:hover {
-          color: ${({ theme }) => theme.font.color.black};
+          color: ${({ theme }) => theme.background.purple};
         }
       }
     }
@@ -144,6 +149,10 @@ const AddActivityForm = ({
         alert("이미지 파일만 업로드 가능합니다.");
       }
     }
+  };
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm({ ...newForm, [name]: value });
   };
   useEffect(() => {
     let fileReader: any,
@@ -174,6 +183,7 @@ const AddActivityForm = ({
             활동 제목
           </Text>
           <input
+            onChange={onChange}
             type="text"
             name="title"
             className="title"
@@ -185,7 +195,12 @@ const AddActivityForm = ({
             <Text size="medium" weight="medium">
               담당자
             </Text>
-            <input className="row" name="leader" placeholder="홍길동" />
+            <input
+              onChange={onChange}
+              className="row"
+              name="leader"
+              placeholder="홍길동"
+            />
           </div>
           <div className="rowInput">
             <Text size="medium" weight="medium">
@@ -213,13 +228,17 @@ const AddActivityForm = ({
             활동 설명
           </Text>
           <textarea
-            name="title"
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+              const { name, value } = e.target;
+              setForm({ ...newForm, [name]: value });
+            }}
+            name="description"
             className="desc"
             placeholder="활동과 관련된 세부 설명을 입력하세요"
           />
         </div>
       </TextForm>
-      <ImgForm>
+      <ImgForm fileDataURL={fileDataURL}>
         <Text size="medium" weight="medium">
           대표 이미지
         </Text>
@@ -244,17 +263,18 @@ const AddActivityForm = ({
           </div>
           <div className="bottom">
             <img
-              src={upload_icon}
+              src={fileDataURL ? edit_icon : upload_icon}
               alt="upload_icon"
-              style={{ marginRight: "5px" }}
+              style={{ marginRight: "5px", width: "15px" }}
             />
             <span
               className="upload"
               onClick={() => {
                 ref.current?.click();
               }}
+              style={fileDataURL ? { color: "#4A38F4" } : { color: "#dcdcdc" }}
             >
-              이미지 찾기
+              {fileDataURL ? "대표 이미지 편집" : "이미지 찾기"}
             </span>
             <input
               type="file"

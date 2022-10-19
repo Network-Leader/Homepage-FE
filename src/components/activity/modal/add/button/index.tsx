@@ -1,11 +1,12 @@
+import { ModalProps } from "../..";
 import { ModalButtonContainer } from "../../../../../styles/activity/modal/template";
 import AddButton from "./AddButton";
 
-const AddModalButton = () => {
+const AddModalButton = ({ form }: { form: ModalProps }) => {
   return (
     <ModalButtonContainer>
       <div className="innerContainer">
-        <AddButton />
+        <AddButton form={form} />
       </div>
     </ModalButtonContainer>
   );

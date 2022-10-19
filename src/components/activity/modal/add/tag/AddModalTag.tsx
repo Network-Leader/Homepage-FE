@@ -24,10 +24,8 @@ const Tags = styled.ul`
   display: flex;
   justify-content: flex-start;
   .tagBox {
-    width: 300px;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
     .tag {
       padding: 8px 12px;
       background-color: ${({ theme }) => theme.background.black};
@@ -35,6 +33,7 @@ const Tags = styled.ul`
       border-radius: ${({ theme }) => theme.borderRadius.min};
     }
     .existTag {
+      margin: 0 8px 0 0;
       display: flex;
       align-items: center;
       padding: 8px 12px;
@@ -88,6 +87,8 @@ const Tags = styled.ul`
   }
 `;
 
+const TAG_LIMIT = 7;
+
 const AddModalTag = ({
   form,
   setForm,
@@ -104,7 +105,7 @@ const AddModalTag = ({
   const newForm = { ...form };
   const addTag = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (newForm.tag!.length <= 4) {
+    if (newForm.tag!.length <= TAG_LIMIT && tagName !== "") {
       newForm.tag!.push(tagName);
     }
     setForm(newForm);
@@ -120,7 +121,7 @@ const AddModalTag = ({
     <TagContainer>
       <div className="header">
         <Text size="medium" weight="medium">
-          활동 태그
+          활동 태그 (최대 {TAG_LIMIT}개)
         </Text>
       </div>
       <Tags>
@@ -142,13 +143,13 @@ const AddModalTag = ({
               </button>
             </div>
           ))}
-          {lenTag < 5 && (
+          {lenTag < TAG_LIMIT && (
             <form className="addTag" onSubmit={addTag}>
               <input
                 type="text"
                 className="input"
                 placeholder="추가하기"
-                minLength={2}
+                minLength={1}
                 maxLength={8}
                 onChange={onChange}
                 value={tagName}
