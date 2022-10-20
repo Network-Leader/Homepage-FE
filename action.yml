@@ -1,0 +1,9 @@
+name: 'NL_Homepage_main_CI/CD'
+description: ''
+inputs:
+  github-token:
+    description: 'github token'
+    required: true
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
