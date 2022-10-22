@@ -23,6 +23,7 @@ const ModalTemplate = styled.div`
   background-color: ${({ theme }) => theme.background.white};
   border-radius: ${({ theme }) => theme.borderRadius.default};
   .mark {
+    width: 37px;
     position: absolute;
     top: -10px;
     right: 40px;
@@ -43,6 +44,11 @@ const Header = styled.div`
       display: flex;
       justify-content: space-between;
       margin: 0 0 0 15px;
+    }
+    .addTag {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 0 20px;
     }
   }
   .right {
