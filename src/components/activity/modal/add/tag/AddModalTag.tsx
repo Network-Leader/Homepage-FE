@@ -50,6 +50,7 @@ const Tags = styled.ul`
         cursor: pointer;
         .minus {
           width: 14px;
+          opacity: 0.5;
         }
       }
     }
@@ -106,6 +107,12 @@ const AddModalTag = ({
   const addTag = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newForm.tag!.length <= TAG_LIMIT && tagName !== "") {
+      for (let i = 0; i < newForm.tag!.length; i++) {
+        if (newForm.tag![i] === tagName) {
+          setTagName("");
+          return;
+        }
+      }
       newForm.tag!.push(tagName);
     }
     setForm(newForm);
@@ -121,7 +128,7 @@ const AddModalTag = ({
     <TagContainer>
       <div className="header">
         <Text size="medium" weight="medium">
-          활동 태그 (최대 {TAG_LIMIT}개)
+          활동 태그 ({form.tag?.length}/{TAG_LIMIT})
         </Text>
       </div>
       <Tags>
