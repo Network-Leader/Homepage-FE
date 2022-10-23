@@ -46,18 +46,14 @@ jobs:
       - name: Build
         run: CI=false npm run build # To ignore treating warnings
 
-      - run: |
-          ls
-          pwd
-
       - name: Archive production artifacts   # upload file
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: build                        # artifact name
-          path: |
-            appspec.yml
-            scripts
+          path: |                            # upload path
             build
+            scripts
+            appspec.yml
       
       # - name: Install AWS CLI
       #   run: |
@@ -73,7 +69,7 @@ jobs:
 
     steps:
       - name: Download production artifacts  # download file
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: build                        # artifact name
 
@@ -106,7 +102,7 @@ jobs:
 
     steps:
       - name: Download production artifacts  # download file
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: build                        # artifact name
 
