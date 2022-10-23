@@ -53,9 +53,9 @@ jobs:
         with:
           name: build                        # artifact name
           path: |
-            build
             appspec.yml
             scripts
+            build
       
       # - name: Install AWS CLI
       #   run: |
