@@ -46,7 +46,7 @@ jobs:
       - name: Build
         run: CI=false npm run build # To ignore treating warnings
 
-      - run: ls
+      - run: pwd
 
       - name: Archive production artifacts   # upload file
         uses: actions/upload-artifact@v1
