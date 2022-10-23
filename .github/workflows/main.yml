@@ -46,11 +46,13 @@ jobs:
       - name: Build
         run: CI=false npm run build # To ignore treating warnings
 
+      - run: ls
+
       - name: Archive production artifacts   # upload file
         uses: actions/upload-artifact@v1
         with:
           name: build                        # artifact name
-          path: |                            # upload path
+          path: |
             build
             appspec.yml
             scripts
