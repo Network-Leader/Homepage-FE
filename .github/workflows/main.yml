@@ -50,19 +50,27 @@ jobs:
       #     sudo apt-get update
       #     sudo apt-get -y install awscli
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@master
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@master
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           aws-region: ap-northeast-2
 
-      - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./NL-FE-main-build.zip s3://nl-fe-s3/NL-FE-main-build.zip
+#       - name: Upload to S3
+#         run: aws s3 cp --region ap-northeast-2 ./NL-FE-main-build.zip s3://nl-fe-s3/NL-FE-main-build.zip
           
-      - name: Deploy to EC2
-        run: aws deploy create-deployment
-          --application-name NL_FE_main_CodeDeploy
-          --deployment-config-name CodeDeployDefault.AllAtOnce
-          --deployment-group-name NL_Homepage_FE_main
-          --s3-location bucket=nl-fe-s3,key=NL-FE-main-build.zip,bundleType=zip
+#       - name: Deploy to EC2
+#         run: aws deploy create-deployment
+#           --application-name NL_FE_main_CodeDeploy
+#           --deployment-config-name CodeDeployDefault.AllAtOnce
+#           --deployment-group-name NL_Homepage_FE_main
+#           --s3-location bucket=nl-fe-s3,key=NL-FE-main-build.zip,bundleType=zip
+      - name: Test
+        run: echo ${{ github.event_name }}
+        
+  test:
+    runs-on: ubuntu-18.04
+    if: github.event_name == 'push'
+    steps:
+      - run: echo Accepted
