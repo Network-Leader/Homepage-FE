@@ -9,7 +9,6 @@ on:
     branches:
       - main
       - develop
-      - CICD_Test
 
   pull_request:
   # Allows you to run this workflow manually from the Actions tab
@@ -35,6 +34,11 @@ jobs:
       #  with:
       #    node-version: 16.16.0
       #    cache: yarn
+      # 
+      # - name: Install AWS CLI
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get -y install awscli
           
       - name: Check Node Version
         run: node -v
@@ -54,18 +58,13 @@ jobs:
             build
             scripts
             appspec.yml
-      
-      # - name: Install AWS CLI
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get -y install awscli
-
+  
 
   deploy-main:
 
     runs-on: ubuntu-18.04
     needs: build
-    if: ${{ github.event_name == 'push' && github.ref_name == 'CICD_Test' }}
+    if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
 
     steps:
       - name: Download production artifacts  # download file
@@ -101,10 +100,10 @@ jobs:
     if: ${{ github.event_name == 'push' && github.ref_name == 'develop' }}
 
     steps:
-      - name: Download production artifacts  # download file
+      - name: Download production artifacts
         uses: actions/download-artifact@v3
         with:
-          name: build                        # artifact name
+          name: build
 
       - name: Create ZIP File 
         run: zip -qq -r ./NL-FE-develop-build.zip . -x "*node_modules*"
