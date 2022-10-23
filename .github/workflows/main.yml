@@ -1,13 +1,17 @@
 # This is a basic workflow to help you get started with Actions
 
-name: NL-FE-Prod-Workflow
+name: NL-FE-Workflow
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "CICD_Test" ]
+    branches:
+      - main
+      - develop
+      - CICD_Test
 
+  pull_request:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -42,35 +46,82 @@ jobs:
       - name: Build
         run: CI=false npm run build # To ignore treating warnings
 
-      - name: Create ZIP File 
-        run: zip -qq -r ./NL-FE-main-build.zip . -x "*node_modules*"
+      - name: Archive production artifacts   # upload file
+        uses: actions/upload-artifact@v1
+        with:
+          name: build                        # artifact name
+          path: |                            # upload path
+            build
+            appspec.yml
+            scripts
       
       # - name: Install AWS CLI
       #   run: |
       #     sudo apt-get update
       #     sudo apt-get -y install awscli
 
-#       - name: Configure AWS credentials
-#         uses: aws-actions/configure-aws-credentials@master
-#         with:
-#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#           aws-region: ap-northeast-2
 
-#       - name: Upload to S3
-#         run: aws s3 cp --region ap-northeast-2 ./NL-FE-main-build.zip s3://nl-fe-s3/NL-FE-main-build.zip
-          
-#       - name: Deploy to EC2
-#         run: aws deploy create-deployment
-#           --application-name NL_FE_main_CodeDeploy
-#           --deployment-config-name CodeDeployDefault.AllAtOnce
-#           --deployment-group-name NL_Homepage_FE_main
-#           --s3-location bucket=nl-fe-s3,key=NL-FE-main-build.zip,bundleType=zip
-      - name: Test
-        run: echo ${{ github.event_name }}
-        
-  test:
+  deploy-main:
+
     runs-on: ubuntu-18.04
-    if: github.event_name == 'push'
+    needs: build
+    if: ${{ github.event_name == 'push' && github.ref_name == 'CICD_Test' }}
+
     steps:
-      - run: echo Accepted
+      - name: Download production artifacts  # download file
+        uses: actions/download-artifact@v1
+        with:
+          name: build                        # artifact name
+
+      - name: Create ZIP File 
+        run: zip -qq -r ./NL-FE-main-build.zip . -x "*node_modules*"
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: Upload to S3
+        run: aws s3 cp --region ap-northeast-2 ./NL-FE-main-build.zip s3://nl-fe-s3/NL-FE-main-build.zip
+          
+      - name: Deploy to EC2
+        run: aws deploy create-deployment
+          --application-name NL_FE_main_CodeDeploy
+          --deployment-config-name CodeDeployDefault.AllAtOnce
+          --deployment-group-name NL_Homepage_FE_main
+          --s3-location bucket=nl-fe-s3,key=NL-FE-main-build.zip,bundleType=zip
+
+
+  deploy-develop:
+
+    runs-on: ubuntu-18.04
+    needs: build
+    if: ${{ github.event_name == 'push' && github.ref_name == 'develop' }}
+
+    steps:
+      - name: Download production artifacts  # download file
+        uses: actions/download-artifact@v1
+        with:
+          name: build                        # artifact name
+
+      - name: Create ZIP File 
+        run: zip -qq -r ./NL-FE-develop-build.zip . -x "*node_modules*"
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: Upload to S3
+        run: aws s3 cp --region ap-northeast-2 ./NL-FE-develop-build.zip s3://nl-fe-s3/NL-FE-develop-build.zip
+          
+      - name: Deploy to EC2
+        run: aws deploy create-deployment
+          --application-name NL_FE_dev_CodeDeploy
+          --deployment-config-name CodeDeployDefault.AllAtOnce
+          --deployment-group-name NL_Homepage_FE_dev
+          --s3-location bucket=nl-fe-s3,key=NL-FE-develop-build.zip,bundleType=zip
