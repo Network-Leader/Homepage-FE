@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { ModalProps } from "../../..";
 import tri_gray from "../../../../../../assets/GUIicon/tri_gray.png";
 import tri_purple from "../../../../../../assets/GUIicon/tri_purple.png";
+import Dropdown from "./Dropdown";
 
 const Selection = ({
   form,
@@ -22,7 +23,9 @@ const Selection = ({
     }
   };
   const onBlur = () => {
-    setIsFocus(false);
+    setTimeout(() => {
+      setIsFocus(false);
+    }, 120);
     if (inputRef.current) {
       inputRef.current.blur();
     }
@@ -47,13 +50,14 @@ const Selection = ({
         onFocus={onFocus}
         onBlur={onBlur}
       />
-      <div
-        className="select"
-        placeholder="기수를 선택하세요"
-        ref={divRef}
-        style={focusStyle}
-      >
-        {name}
+      <div className="select" ref={divRef} style={focusStyle}>
+        {name === "제한 인원수"
+          ? form.limit === 0
+            ? name
+            : form.limit
+          : form.generation === 0
+          ? name
+          : form.generation}
         {isFocus ? (
           <span className="selectIcon" onClick={onClick}>
             <img src={tri_purple} alt="tri_purple" className="tri" />
@@ -63,6 +67,7 @@ const Selection = ({
             <img src={tri_gray} alt="tri_gray" className="tri" />
           </span>
         )}
+        {isFocus && <Dropdown name={name} form={form} setForm={setForm} />}
       </div>
     </>
   );
