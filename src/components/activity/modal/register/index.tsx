@@ -18,7 +18,7 @@ const dummyModalData: ModalProps = {
   limit: 15,
   registry: 10,
   classification: "클래스",
-  deadline: new Date(2022, 9, 27),
+  deadline: new Date(2022, 10, 27),
   tag: ["프로그래밍", "알고리즘", "자료구조", "C++", "C", "JAVA", "Python"],
   thumbnail: null,
 };
