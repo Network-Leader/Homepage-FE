@@ -50,6 +50,7 @@ const TextForm = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
         font-size: ${({ theme }) => theme.font.size.small}px;
         font-weight: ${({ theme }) => theme.font.weight.regular};
         color: #757575;
