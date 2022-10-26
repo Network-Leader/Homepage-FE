@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import React, { useEffect } from "react";
 import { ModalProps } from "../../..";
 
 const DropdownContainer = styled.ul`

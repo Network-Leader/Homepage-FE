@@ -3,7 +3,6 @@ import { useState } from "react";
 import { ModalProps } from "../..";
 import tri_black from "../../../../../assets/GUIicon/tri_black.png";
 import tri_purple from "../../../../../assets/GUIicon/tri_purple.png";
-import CalendarUI from "../Calendar";
 
 const DeadlineFormContainer = styled.div<{ deadline: boolean }>`
   width: 100%;
@@ -51,7 +50,10 @@ const DeadlineForm = ({ setForm }: { setForm: (form: ModalProps) => void }) => {
 
   return (
     <DeadlineFormContainer deadline={deadline}>
-      {deadline && <CalendarUI />}
+      {/**
+       * @todo
+       * 1. 캘린더를 누르면 캘린더가 나오도록 하기
+       */}
       <div className="element">
         <span className="key">등록일자</span>
         <span className="date_now">
