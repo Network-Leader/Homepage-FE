@@ -20,11 +20,18 @@ const AddActivityModal = () => {
   });
   return (
     <>
+<<<<<<< HEAD
       {/* 활동추가 모달 UI 다음주에 공개예정 */}
       <AddModalHeader setForm={setForm} />
       {/* 헤더에 클래시피케이션 태그, 달력 추가하기 */}
       <AddModalBody form={form} setForm={setForm} />
       {/* 바디에 셀렉트 인풋 */}
+=======
+      <AddModalHeader form={form} setForm={setForm} />
+      {/* 달력(deadline) 추가하기 */}
+      <AddModalBody form={form} setForm={setForm} />
+      {/* 바디에 셀렉트 인풋 드롭다운UI (limit, generation) */}
+>>>>>>> develop
       <AddModalTag form={form} setForm={setForm} />
       {/* 버튼에 폼 post요청기능 추가하기 */}
       <AddModalButton form={form} />

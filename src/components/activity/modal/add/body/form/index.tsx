@@ -6,6 +6,10 @@ import modal_icon from "../../../../../../assets/GUIicon/modal_icon.png";
 import upload_icon from "../../../../../../assets/GUIicon/upload_icon.png";
 import edit_icon from "../../../../../../assets/GUIicon/edit.png";
 import { useEffect, useRef, useState } from "react";
+<<<<<<< HEAD
+=======
+import Selection from "./Selection";
+>>>>>>> develop
 
 const TextForm = styled.div`
   width: 490px;
@@ -39,6 +43,33 @@ const TextForm = styled.div`
         width: 147px;
         height: 38px;
       }
+<<<<<<< HEAD
+=======
+      .selectInput {
+        opacity: 0;
+        height: 0;
+      }
+      .select {
+        width: 153px;
+        height: 42px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        font-size: ${({ theme }) => theme.font.size.small}px;
+        font-weight: ${({ theme }) => theme.font.weight.regular};
+        color: #757575;
+        border: 1px solid #dcdcdc;
+        padding: 5px;
+        border-radius: ${({ theme }) => theme.borderRadius.min};
+        .selectIcon {
+          cursor: pointer;
+          .tri {
+            width: 13px;
+          }
+        }
+      }
+>>>>>>> develop
     }
   }
   .inputBox {
@@ -60,11 +91,19 @@ const TextForm = styled.div`
     justify-content: space-between;
     .desc {
       width: 98.8%;
+<<<<<<< HEAD
       height: 131px;
       resize: none;
       border: 1px solid #dcdcdc;
       border-radius: ${({ theme }) => theme.borderRadius.min};
       text-indent: 5px;
+=======
+      height: 126px;
+      resize: none;
+      border: 1px solid #dcdcdc;
+      border-radius: ${({ theme }) => theme.borderRadius.min};
+      padding: 5px;
+>>>>>>> develop
       transition: all 0.2s linear;
       &:focus {
         outline: none;
@@ -110,6 +149,12 @@ const ImgForm = styled.div<{ fileDataURL: string | null }>`
         font-weight: ${({ theme }) => theme.font.weight.bold};
         margin: 5px 0 0 0;
       }
+<<<<<<< HEAD
+=======
+      .icon {
+        width: 35px;
+      }
+>>>>>>> develop
     }
     .bottom {
       width: 100%;
@@ -190,6 +235,7 @@ const AddActivityForm = ({
             placeholder="제목을 입력하세요"
           />
         </div>
+<<<<<<< HEAD
         <div className="rowInputBox">
           <div className="rowInput">
             <Text size="medium" weight="medium">
@@ -223,6 +269,35 @@ const AddActivityForm = ({
             />
           </div>
         </div>
+=======
+        <>
+          <div className="rowInputBox">
+            <div className="rowInput">
+              <Text size="medium" weight="medium">
+                담당자
+              </Text>
+              <input
+                onChange={onChange}
+                className="row"
+                name="leader"
+                placeholder="홍길동"
+              />
+            </div>
+            <div className="rowInput">
+              <Text size="medium" weight="medium">
+                제한 인원수
+              </Text>
+              <Selection name="제한 인원수" form={form} setForm={setForm} />
+            </div>
+            <div className="rowInput">
+              <Text size="medium" weight="medium">
+                기수
+              </Text>
+              <Selection name="기수" form={form} setForm={setForm} />
+            </div>
+          </div>
+        </>
+>>>>>>> develop
         <div className="textArea">
           <Text size="medium" weight="medium">
             활동 설명

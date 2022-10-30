@@ -10,8 +10,13 @@ export interface ModalProps {
   title: string | null;
   description: string | null;
   leader: string | null;
+<<<<<<< HEAD
   generation: number | null;
   limit: number | null;
+=======
+  generation: number | string | null;
+  limit: number | string | null;
+>>>>>>> develop
   registry: number | null;
   classification: "클래스" | "스터디" | "특강";
   deadline: Date | null;

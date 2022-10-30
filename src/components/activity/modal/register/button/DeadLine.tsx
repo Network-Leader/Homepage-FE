@@ -26,7 +26,11 @@ const DeadLineContainer = styled.div`
   height: 17px;
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   margin: 0 0 0 195px;
+=======
+  margin: 0 0 0 172px;
+>>>>>>> develop
   .timer {
     width: 15.16px;
     margin: 0 5px 0 0;
