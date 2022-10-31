@@ -138,6 +138,7 @@ const reset = css`
     width: 500px;
     height: 325px;
     overflow: visible;
+    position: relative;
   }
   .swiper-slide {
     align-items: center;
@@ -153,6 +154,16 @@ const reset = css`
   .swiper-slide-active + .swiper-slide + .swiper-slide,
   .swiper-slide-active + .swiper-slide + .swiper-slide + .swiper-slide {
     opacity: 1;
+  }
+  .swiper-button-prev::after {
+    opacity: 0;
+    display: none;
+  }
+  .swiper-button-next::after {
+    color: white;
+    margin-top: 220px;
+    margin-right: 30px;
+    font-size: 30px;
   }
 `;
 export default reset;
