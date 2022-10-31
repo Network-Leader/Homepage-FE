@@ -153,10 +153,11 @@ const reset = css`
     transition: opacity 0.3s;
   }
   .swiper-slide-active,
-  .swiper-slide-active + .swiper-slide,
-  .swiper-slide-active + .swiper-slide + .swiper-slide,
-  .swiper-slide-active + .swiper-slide + .swiper-slide + .swiper-slide {
+  .swiper-slide-active + .swiper-slide {
     opacity: 1;
+  }
+  .swiper-slide + .swiper-slide-next {
+    opacity: 0.7;
   }
   .swiper-button-prev::after {
     opacity: 0;
@@ -167,6 +168,11 @@ const reset = css`
     margin-top: 220px;
     margin-right: 30px;
     font-size: 30px;
+  }
+  .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: -30px;
+    left: 0;
+    width: 100%;
   }
 `;
 
