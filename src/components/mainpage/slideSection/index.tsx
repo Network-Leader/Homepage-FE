@@ -1,6 +1,6 @@
 import React from "react";
 import { SlideWrapper, TitleBox } from "../../../styles/mainpage/slideSection";
-import { Text } from "../../common";
+import { Button, Text } from "../../common";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -55,6 +55,7 @@ function SlideSection() {
             );
           })}
         </Swiper>
+        <Button>더보기</Button>
       </SlideWrapper>
     </>
   );
