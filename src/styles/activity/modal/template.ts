@@ -10,7 +10,7 @@ const ModalContainer = styled.div`
   background-color: rgba(105, 105, 105, 0.9);
   position: fixed;
   top: 0;
-  /* z-index: 996; */
+  overflow: hidden;
 `;
 
 const ModalTemplate = styled.div`
