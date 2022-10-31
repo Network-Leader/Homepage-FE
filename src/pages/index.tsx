@@ -1,6 +1,7 @@
 import React from "react";
-import SlideSection from "../components/mainpage/slideSection";
 import VideoTextSection from "../components/mainpage/videoTextSection";
+import SlideSection from "../components/mainpage/slideSection";
+import ApplicationSection from "../components/mainpage/applicationSection";
 
 const MainPage = () => {
   return (
@@ -9,6 +10,7 @@ const MainPage = () => {
         <VideoTextSection />
       </div>
       <SlideSection />
+      <ApplicationSection />
     </>
   );
 };
