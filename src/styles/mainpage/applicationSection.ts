@@ -86,6 +86,7 @@ export const CategoryContents = styled.div`
   background-color: rgba(74, 56, 244, 0.5);
   border-radius: 5px;
   padding: 10px;
+  margin-left: 10px;
 `;
 
 export const RegularSector = styled.div`
