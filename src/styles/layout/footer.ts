@@ -1,11 +1,10 @@
 import styled from "@emotion/styled";
 
 const FooterBox = styled.div`
-  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 1441px; */
+  z-index: 999;
   width: 100%;
   height: 318px;
   left: 0px;
@@ -15,10 +14,19 @@ const FooterBox = styled.div`
 
 const FooterIconBox = styled.div`
   display: flex;
+  justify-content: flex-start;
   min-height: 35px;
   margin-top: 148px;
   min-width: 942px;
   border-bottom: 2px solid white;
+`;
+
+const FooterRightBox = styled.div`
+  /* float: right; */
+`;
+
+const FooterLeftBox = styled.div`
+  margin-right: auto;
 `;
 
 const FooterContents = styled.div`
@@ -27,4 +35,10 @@ const FooterContents = styled.div`
   padding: 40px 0px;
 `;
 
-export { FooterBox, FooterIconBox, FooterContents };
+export {
+  FooterBox,
+  FooterIconBox,
+  FooterRightBox,
+  FooterLeftBox,
+  FooterContents,
+};

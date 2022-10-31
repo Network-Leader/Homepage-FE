@@ -136,6 +136,38 @@ const reset = css`
     text-decoration: none;
     color: inherit;
   }
+  .swiper {
+    margin: 100px auto;
+    width: 500px;
+    height: 325px;
+    overflow: visible;
+    position: relative;
+  }
+  .swiper-slide {
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .swiper-slide-active,
+  .swiper-slide-active + .swiper-slide,
+  .swiper-slide-active + .swiper-slide + .swiper-slide,
+  .swiper-slide-active + .swiper-slide + .swiper-slide + .swiper-slide {
+    opacity: 1;
+  }
+  .swiper-button-prev::after {
+    opacity: 0;
+    display: none;
+  }
+  .swiper-button-next::after {
+    color: white;
+    margin-top: 220px;
+    margin-right: 30px;
+    font-size: 30px;
+  }
 `;
 
 export const transition = css`

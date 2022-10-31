@@ -1,16 +1,29 @@
+import React from "react";
 import {
   FooterBox,
   FooterContents,
   FooterIconBox,
+  FooterRightBox,
+  FooterLeftBox,
 } from "../../styles/layout/footer";
 import { ReactComponent as NLslogo } from "../../assets/logo/NL_logo-white.svg";
+import gitIcon from "../../assets/github_icon.svg";
+import mailIcon from "../../assets/mail_icon.svg";
 import { Text } from "../common";
 
 function Footer() {
   return (
     <FooterBox>
       <FooterIconBox>
-        <NLslogo width="35px" />
+        <FooterLeftBox>
+          <NLslogo width="35px" />
+        </FooterLeftBox>
+        <FooterRightBox>
+          <a href="https://github.com/Network-Leader">
+            <img src={gitIcon} alt="github" />
+          </a>
+          <img src={mailIcon} alt="mail" />
+        </FooterRightBox>
       </FooterIconBox>
       <FooterContents>
         <Text

@@ -4,7 +4,7 @@ const HeaderBox = styled.div`
   display: flex;
   position: fixed;
   top: 0px;
-  left: 0px;
+  justify-content: space-between;
   /* width: 1441px; */
   width: 100%;
   height: 105px;
@@ -22,7 +22,7 @@ const HeaderContents = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 400px;
+  margin-right: 200px;
 `;
 
 const HeaderMenuItem = styled.div`
@@ -37,7 +37,6 @@ const HeaderMenuItem = styled.div`
 `;
 
 const LogoBox = styled.div`
-  left: 205px;
   margin-left: 200px;
   min-width: 211px;
   min-height: 101px;
