@@ -4,7 +4,7 @@ const FooterBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 999;
+  z-index: 997;
   width: 100%;
   height: 318px;
   left: 0px;

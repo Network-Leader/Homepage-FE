@@ -9,4 +9,13 @@ const GlobalContainer = styled.main`
   padding: 145px 0 0 0;
 `;
 
-export { GlobalContainer };
+const MainContainer = styled.main`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+`;
+
+export { GlobalContainer, MainContainer };
