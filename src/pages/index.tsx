@@ -1,4 +1,3 @@
-import React from "react";
 import VideoTextSection from "../components/mainpage/videoTextSection";
 import SlideSection from "../components/mainpage/slideSection";
 import ApplicationSection from "../components/mainpage/applicationSection";

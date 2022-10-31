@@ -106,6 +106,9 @@ const reset = css`
   body {
     font-family: "Spoqa Han Sans Neo";
     line-height: 1;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
   ol,
   ul {
@@ -166,4 +169,9 @@ const reset = css`
     font-size: 30px;
   }
 `;
+
+export const transition = css`
+  transition: all 1s linear;
+`;
+
 export default reset;
