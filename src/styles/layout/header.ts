@@ -22,11 +22,7 @@ const HeaderContents = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-<<<<<<< HEAD
   margin-right: 200px;
-=======
-  margin-left: 400px;
->>>>>>> develop
 `;
 
 const HeaderMenuItem = styled.div`

@@ -1,29 +1,20 @@
-<<<<<<< HEAD
 import React from "react";
-=======
->>>>>>> develop
 import {
   FooterBox,
   FooterContents,
   FooterIconBox,
-<<<<<<< HEAD
   FooterRightBox,
   FooterLeftBox,
 } from "../../styles/layout/footer";
-import { ReactComponent as NLslogo } from "../../assets/NL_logo-white.svg";
+import { ReactComponent as NLslogo } from "../../assets/logo/NL_logo-white.svg";
 import gitIcon from "../../assets/github_icon.svg";
 import mailIcon from "../../assets/mail_icon.svg";
-=======
-} from "../../styles/layout/footer";
-import { ReactComponent as NLslogo } from "../../assets/logo/NL_logo-white.svg";
->>>>>>> develop
 import { Text } from "../common";
 
 function Footer() {
   return (
     <FooterBox>
       <FooterIconBox>
-<<<<<<< HEAD
         <FooterLeftBox>
           <NLslogo width="35px" />
         </FooterLeftBox>
@@ -33,9 +24,6 @@ function Footer() {
           </a>
           <img src={mailIcon} alt="mail" />
         </FooterRightBox>
-=======
-        <NLslogo width="35px" />
->>>>>>> develop
       </FooterIconBox>
       <FooterContents>
         <Text
