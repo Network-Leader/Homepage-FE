@@ -10,13 +10,16 @@ function RightSector() {
   return (
     <>
       <CategoryBox>
-        <Text size="medium" color="white">
-          {`>`} 전공 및 학년
-        </Text>
-
-        <Text size="medium" color="white">
-          전공/학년 무관
-        </Text>
+        <CategoryTitle>
+          <Text size="medium" color="white">
+            {`>`} 전공 및 학년
+          </Text>
+        </CategoryTitle>
+        <CategoryContents>
+          <Text size="medium" color="white">
+            전공/학년 무관
+          </Text>
+        </CategoryContents>
       </CategoryBox>
       <CategoryBox>
         <CategoryTitle>
