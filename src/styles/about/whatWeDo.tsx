@@ -37,22 +37,33 @@ export const SubTitleSection = styled.section<{ scrollY: number }>`
     position: absolute;
     left: 14.6%;
     top: 3.6%;
+    transition: 2s;
+    transform: ${(props) =>
+      props.scrollY > 5550 ? "translate(0px)" : "translate(-1000px)"};
   }
   .image3 {
     position: absolute;
     right: 0;
+    transition: 1s;
+    transform: ${(props) =>
+      props.scrollY > 5650 ? "translate(0px)" : "translate(500px)"};
   }
   .image4 {
     position: absolute;
     left: 17.3%;
     top: 49%;
+    transition: 1s;
+    transform: ${(props) =>
+      props.scrollY > 5850 ? "translate(0px)" : "translate(-1000px)"};
   }
   .nlText {
     display: flex;
     position: absolute;
     right: -1.1vw;
     bottom: 0.8vw;
-
+    transition: 1s;
+    transform: ${(props) =>
+      props.scrollY > 6050 ? "translate(0px)" : "translate(500px)"};
     .firstText {
       color: black;
       font-size: 6.8vw;
