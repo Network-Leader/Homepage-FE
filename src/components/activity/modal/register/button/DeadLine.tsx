@@ -30,7 +30,7 @@ const DeadLineContainer = styled.div`
   .timer {
     width: 15.16px;
     margin: 0 5px 0 0;
-    animation: ${TimerAnimation} 0.5s infinite;
+    animation: ${TimerAnimation} 0.1s linear infinite;
   }
   .mixedTimer {
     width: 190px;

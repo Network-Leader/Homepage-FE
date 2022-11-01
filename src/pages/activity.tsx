@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Body from "../components/activity/body";
 import Categories from "../components/activity/category";
 import Head from "../components/activity/head";
@@ -25,6 +25,16 @@ const Activity = () => {
     { name: "클래스", selected: false, color: "#FFC466" },
     { name: "특강", selected: false, color: "#D5A0FF" },
   ]);
+  const path = useLocation().pathname.split("/")[2];
+  const [isModal, setIsModal] = useState(false);
+  useEffect(() => {
+    path ? setIsModal(true) : setIsModal(false);
+  }, [path]);
+  useEffect(() => {
+    isModal
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "");
+  }, [isModal]);
   return (
     <ActivityContainer>
       <GlobalContainer>
