@@ -23,11 +23,14 @@ declare module "@emotion/react" {
       };
       color: {
         black: string;
+        blackopacity: string;
+        grey: string;
         white: string;
         warning: string;
         highlight: string;
         block: string;
         foot: string;
+        blue: string;
       };
     };
     background: {
@@ -40,6 +43,8 @@ declare module "@emotion/react" {
       purple: string;
       lightpurple: string;
       purpleopacity: string;
+      blue: string;
+      blueopacity: string;
     };
     borderRadius: {
       min: string;

@@ -22,11 +22,14 @@ const theme: Theme = {
     },
     color: {
       black: "#000000",
+      blackopacity: "rgba(0,0,0,.35)",
+      grey: "#6C6C6C",
       white: "#FFFFFF",
       warning: "#FF3939",
       highlight: "#9989F7",
       block: "#868686",
-      foot: "#BEBEBE"
+      foot: "#BEBEBE",
+      blue: "#4A38F4",
     },
   },
   background: {
@@ -39,6 +42,8 @@ const theme: Theme = {
     purple: "#9989F7",
     lightpurple: "#DAD4FD",
     purpleopacity: "rgba(153, 137, 247, 0.1)",
+    blue: "#4A38F4",
+    blueopacity: "rgba(74, 56, 244, 0.1)",
   },
   borderRadius: {
     min: "5px",

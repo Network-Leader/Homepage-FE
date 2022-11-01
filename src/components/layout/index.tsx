@@ -6,11 +6,9 @@ import Header from "./Header";
 
 const Layout = () => {
   return (
-    <div style={{ backgroundColor: "blue" }}>
+    <div>
       <Header authenticated={false} profile={null} />
-
       <Outlet />
-
       <Footer />
     </div>
   );
