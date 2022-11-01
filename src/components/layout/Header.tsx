@@ -1,11 +1,10 @@
-import React from "react";
 import {
   HeaderBox,
   HeaderContents,
   HeaderMenuItem,
   LogoBox,
 } from "../../styles/layout/header";
-import { ReactComponent as NLlogo } from "../../assets/NL_LOGO.svg";
+import { ReactComponent as NLlogo } from "../../assets/logo/NL_LOGO.svg";
 import { Nav } from "../common";
 import { Link } from "react-router-dom";
 
@@ -44,14 +43,11 @@ function Header(props: Props) {
         </Link>
       </LogoBox>
       <HeaderContents>
-        {menuList.map((item, index) => (
-          <HeaderMenuItem>
-            <Nav
-              color="white"
-              size="large"
-              children={item.name}
-              url={item.link}
-            />
+        {menuList.map(({ name, link }) => (
+          <HeaderMenuItem key={name ?? link}>
+            <Nav color="white" size="large" url={link}>
+              {name}
+            </Nav>
           </HeaderMenuItem>
         ))}
         <div>
@@ -59,7 +55,9 @@ function Header(props: Props) {
             props.profile?.name
           ) : (
             <HeaderMenuItem>
-              <Nav color="white" size="large" children="로그인" url="/signin" />
+              <Nav color="white" size="large" url="member/signin">
+                로그인
+              </Nav>
             </HeaderMenuItem>
           )}
         </div>

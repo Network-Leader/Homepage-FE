@@ -33,7 +33,7 @@ const TitleText = () => {
         />
       </div>
       <div className="imageOneBox">
-        <Image src={aboutImage1} alt="image1" width="calc(100vw * 0.12)" />
+        <Image src={aboutImage1} alt="image1" />
         <Text size="xlarge" lineheight="34.42px">
           NL은 자율적인 참여로 여러 활동을 진행하고 있습니다. <br />
           스터디나 클래스, 각종 행사, 홍보 등의 활동은 자발적인
@@ -58,7 +58,7 @@ const TitleText = () => {
             활발한 활동을 이어나가고 있습니다.
           </Text>
         </div>
-        <Image src={aboutImage2} alt="image2" width="calc(100vw * 0.41)" />
+        <Image src={aboutImage2} alt="image2" />
       </div>
     </TitleTextSection>
   );

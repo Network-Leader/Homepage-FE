@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const TitleTextSection = styled.section`
   margin: 105px 0 371px 0;
   text-align: center;
+  width: 100vw;
   .titleBox {
     margin-bottom: 63px;
   }
@@ -15,7 +16,7 @@ export const TitleTextSection = styled.section`
   .imageOneBox {
     display: flex;
     gap: 22px;
-    margin-left: 42%;
+    margin-left: 41%;
     align-items: center;
     text-align: left;
     margin-bottom: 266px;
@@ -24,7 +25,7 @@ export const TitleTextSection = styled.section`
     display: flex;
     gap: 89px;
     text-align: left;
-    margin-left: calc(100vw * 0.147);
+    margin-left: 14.7%;
     .imageTwoTextBox {
       .firstText {
         margin-bottom: 15px;
@@ -61,7 +62,7 @@ export const CoreValueSection = styled.section<{ isSelectValue: string }>`
   .coreValueContentBox {
     width: 100%;
     min-height: 100%;
-    padding: 30px 0 0 52px;
+    padding: 30px 0 0 40px;
   }
 `;
 

@@ -1,18 +1,28 @@
 import { ProjectSection } from "../../../../styles/about/whatWeDo";
 import { Image, Text } from "../../../common";
 import ProjectImg from "../../../../assets/project_img.png";
+import MainWhatWeDo from "../../../../assets/main_what_we_do.png";
+
 import TagCollection from "./TagCollection";
 
-const Project = () => {
+interface ProjectType {
+  page: string;
+}
+
+const Project = ({ page }: ProjectType) => {
   return (
     <ProjectSection>
       <div className="title">
         <Text size="h1" weight="bold">
-          NL Company Project
+          {page === "about" ? "NL Company Project" : "What We Do"}
         </Text>
       </div>
       <div className="contentBox">
-        <Image src={ProjectImg} alt="projectimg" />
+        {page === "about" ? (
+          <Image src={ProjectImg} alt="projectimg" />
+        ) : (
+          <Image src={MainWhatWeDo} alt="projectimg" />
+        )}
         <div className="content">
           <div className="contentTitle">
             <Text size="h2" weight="bold" lineheight="50.4px">

@@ -1,16 +1,15 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
-import { HeaderContents } from "../../styles/layout/header";
+import { MainContainer } from "../../styles/layout/layout";
 import Footer from "./Footer";
 import Header from "./Header";
 
 const Layout = () => {
   return (
-    <div>
+    <MainContainer>
       <Header authenticated={false} profile={null} />
       <Outlet />
       <Footer />
-    </div>
+    </MainContainer>
   );
 };
 

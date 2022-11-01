@@ -9,7 +9,7 @@ const WhatWeDoSection = () => {
       <Title />
       <SubTitle />
       <Programs />
-      <Project />
+      <Project page="about" />
     </>
   );
 };

@@ -106,6 +106,9 @@ const reset = css`
   body {
     font-family: "Spoqa Han Sans Neo";
     line-height: 1;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
   ol,
   ul {
@@ -133,5 +136,48 @@ const reset = css`
     text-decoration: none;
     color: inherit;
   }
+  .swiper {
+    margin: 100px auto;
+    width: 500px;
+    height: 325px;
+    overflow: visible;
+    position: relative;
+  }
+  .swiper-slide {
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .swiper-slide-active,
+  .swiper-slide-active + .swiper-slide {
+    opacity: 1;
+  }
+  .swiper-slide + .swiper-slide-next {
+    opacity: 0.7;
+  }
+  .swiper-button-prev::after {
+    opacity: 0;
+    display: none;
+  }
+  .swiper-button-next::after {
+    color: white;
+    margin-top: 220px;
+    margin-right: 30px;
+    font-size: 30px;
+  }
+  .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+  }
 `;
+
+export const transition = css`
+  transition: all 1s linear;
+`;
+
 export default reset;

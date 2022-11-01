@@ -2,11 +2,13 @@ import styled from "@emotion/styled";
 
 export const HowWeAffectTitle = styled.section`
   position: relative;
+  margin-top: 450px;
   margin-bottom: 265px;
 `;
 
 export const TitleBgSection = styled.div<{ scrollY: number }>`
   position: relative;
+  width: 100vw;
   height: calc(100vw / 1440 * 960);
   display: flex;
   justify-content: center;
