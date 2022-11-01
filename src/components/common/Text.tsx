@@ -12,7 +12,15 @@ interface TextProps {
     | "medium"
     | "small";
   weight?: "bold" | "medium" | "regular" | "light" | "thin";
-  color?: "black" | "white" | "warning" | "highlight" | "block" | "foot";
+  color?:
+    | "black"
+    | "white"
+    | "grey"
+    | "warning"
+    | "highlight"
+    | "block"
+    | "foot"
+    | "blackopacity";
   lineheight?: string;
   children: React.ReactNode;
 }

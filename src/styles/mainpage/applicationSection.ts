@@ -6,6 +6,7 @@ export const CoverImageBox = styled.div<{ img: string }>`
   height: auto;
   width: 100%;
   background-size: cover;
+  margin-top: 300px;
 `;
 
 export const MainBox = styled.div`

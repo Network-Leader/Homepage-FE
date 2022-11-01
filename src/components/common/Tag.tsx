@@ -5,7 +5,7 @@ interface TagPorps {
   /**
    * @default "medium"
    */
-  padding?: "min" | "medium" | "max";
+  padding?: "min" | "medium" | "large" | "max";
   /**
    * @default 'medium'
    * @props fontSize small: 12px
@@ -21,7 +21,7 @@ interface TagPorps {
   /**
    * @default 'black'
    */
-  color?: "white" | "black" | "highlight";
+  color?: "white" | "black" | "highlight" | "blue";
   /**
    * @default 'black'
    */
@@ -30,7 +30,9 @@ interface TagPorps {
     | "block"
     | "purple"
     | "lightpurple"
-    | "purpleopacity";
+    | "purpleopacity"
+    | "blue"
+    | "blueopacity";
   /**
    * @default 'default'
    * @props radius default: 10px
@@ -47,6 +49,7 @@ interface TagPorps {
    */
   onClick?: () => void;
   children: React.ReactNode;
+  className?: string;
 }
 /**
  *
@@ -58,6 +61,8 @@ interface TagPorps {
  * @param radius
  * @param icon
  * @param onClick
+ * @param onMouseOver
+ * @param onMouseLeave
  * @param children
  * @returns JSX.Element
  */
@@ -70,6 +75,7 @@ const Tag = ({
   radius,
   icon,
   onClick,
+  className,
   children,
 }: TagPorps) => {
   const Component = styled.span`
@@ -78,7 +84,9 @@ const Tag = ({
       ? "8px 12px"
       : padding === "min"
       ? "4px 5px"
-      : "4px 20px"};
+      : padding === "max"
+      ? "4px 20px"
+      : "8px 25px"};
     border-radius: ${({ theme }) => theme.borderRadius[radius ?? "default"]};
     font-size: ${({ theme }) => theme.font.size[fontSize ?? "medium"]}px;
     font-weight: ${({ theme }) => theme.font.weight[fontWeight ?? "medium"]};
@@ -87,7 +95,7 @@ const Tag = ({
       theme.background[backgroundColor ?? "purple"]};
   `;
   return (
-    <Component onClick={onClick}>
+    <Component onClick={onClick} className={className}>
       {icon === "add" ? (
         <>
           <span>

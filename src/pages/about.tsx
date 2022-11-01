@@ -1,7 +1,7 @@
-import { GlobalContainer } from "../styles/layout/layout";
+import About from "../components/about";
 
-const About = () => {
-  return <GlobalContainer></GlobalContainer>;
+const AboutPage = () => {
+  return <About />;
 };
 
-export default About;
+export default AboutPage;

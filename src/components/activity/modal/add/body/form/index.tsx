@@ -270,8 +270,8 @@ const AddActivityForm = ({
               <Image
                 src={fileDataURL}
                 alt="thumbnail"
-                width={405}
-                height={265}
+                width="405px"
+                height="265px"
                 fit="cover"
                 display="inline-block"
                 shape="rounded"

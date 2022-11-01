@@ -9,6 +9,7 @@ export const SlideWrapper = styled.section`
   width: 100vw;
   height: 800px;
   margin-top: 100px;
+  margin-bottom: 213px;
   background-color: white;
 `;
 

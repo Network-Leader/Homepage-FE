@@ -11,7 +11,13 @@ const FooterBox = styled.div`
   bottom: 0;
   background-color: black;
 `;
+const FooterRightBox = styled.div`
+  /* float: right; */
+`;
 
+const FooterLeftBox = styled.div`
+  margin-right: auto;
+`;
 const FooterIconBox = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -19,14 +25,6 @@ const FooterIconBox = styled.div`
   margin-top: 148px;
   min-width: 942px;
   border-bottom: 2px solid white;
-`;
-
-const FooterRightBox = styled.div`
-  /* float: right; */
-`;
-
-const FooterLeftBox = styled.div`
-  margin-right: auto;
 `;
 
 const FooterContents = styled.div`

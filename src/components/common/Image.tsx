@@ -7,12 +7,12 @@ interface ImageProps {
   /**
    * @default 'auto'
    */
-  width?: number;
+  width?: string;
 
   /**
    * @default 'auto'
    */
-  height?: number;
+  height?: string;
 
   /**
    *  @default 'square'
@@ -38,8 +38,8 @@ interface ImageProps {
 
 function Image(props: ImageProps) {
   const Component = styled.img`
-    width: ${`${props.width}px` ?? "auto"};
-    height: ${`${props.height}px` ?? "auto"};
+    width: ${props.width ?? "auto"};
+    height: ${props.height ?? "auto"};
     border-radius: ${props.shape === "circle"
       ? "50%"
       : props.shape === "rounded"

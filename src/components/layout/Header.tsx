@@ -18,7 +18,7 @@ type Props = {
 const menuList = [
   {
     name: "소개",
-    link: "/",
+    link: "/about",
   },
   {
     name: "활동",

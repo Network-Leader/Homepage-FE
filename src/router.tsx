@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Layout from "./components/layout";
 import MainPage from "./pages";
 import SignIn from "./components/member/signIn";
@@ -10,9 +11,18 @@ import About from "./pages/about";
 import Board from "./pages/board";
 import Template from "./components/activity/modal";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 function Router() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<MainPage />} />
